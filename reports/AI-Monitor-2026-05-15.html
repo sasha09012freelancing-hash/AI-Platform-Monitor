@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI Platform Monitor</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+         background: #0f1117; color: #e2e8f0; padding: 32px 16px; line-height: 1.6; }
+  .container { max-width: 1100px; margin: 0 auto; }
+  h1 { font-size: 1.8rem; color: #7dd3fc; border-bottom: 2px solid #1e3a5f;
+       padding-bottom: 12px; margin: 0 0 24px; }
+  h2 { font-size: 1.2rem; color: #94a3b8; text-transform: uppercase; letter-spacing: .05em;
+       margin: 32px 0 12px; border-left: 3px solid #3b82f6; padding-left: 10px; }
+  h3 { font-size: 1rem; color: #7dd3fc; margin: 20px 0 8px; }
+  p { margin-bottom: 10px; color: #cbd5e1; }
+  a { color: #60a5fa; text-decoration: none; }
+  a:hover { text-decoration: underline; }
+  strong { color: #f1f5f9; }
+  hr { border: none; border-top: 1px solid #1e293b; margin: 24px 0; }
+  em { color: #94a3b8; font-style: normal; font-size: .85rem; }
+  table { width: 100%; border-collapse: collapse; margin: 12px 0 20px; font-size: .875rem; }
+  th { background: #1e293b; color: #94a3b8; text-align: left;
+       padding: 10px 12px; border-bottom: 2px solid #334155; font-weight: 600; }
+  td { padding: 9px 12px; border-bottom: 1px solid #1e293b; vertical-align: top; }
+  tr:hover td { background: #111827; }
+  ul, ol { padding-left: 24px; margin-bottom: 12px; }
+  li { color: #cbd5e1; margin-bottom: 6px; }
+  .green  { color: #4ade80; }
+  .yellow { color: #fbbf24; }
+  .red    { color: #f87171; }
+  .up     { color: #4ade80; font-weight: bold; }
+  .down   { color: #f87171; font-weight: bold; }
+  .warn   { color: #fbbf24; font-weight: bold; }
+</style>
+</head>
+<body>
+<div class="container">
+<hr>
+<h1>AI Platform Monitor — неделя 08.05–15.05.2026</h1>
+
+<h2>1. Сводка</h2>
+
+<table><thead><tr><th>Платформа</th><th>Активность</th><th>Главный сигнал</th></tr></thead><tbody><tr><td>Vertex AI</td><td><span class="green">🟢</span></td><td>Активное развитие AI агентов и фокус на безопасности enterprise-уровня.</td></tr><tr><td>AWS Bedrock</td><td><span class="green">🟢</span></td><td>Масштабное расширение возможностей управления доступом и интеграция с Cisco.</td></tr><tr><td>Azure Foundry</td><td><span class="green">🟢</span></td><td>Релиз Foundry Local 1.1 и расширение экосистемы моделей.</td></tr><tr><td>AutoGen</td><td><span class="green">🟢</span></td><td>Рост инструментов безопасности памяти и управления сложными цепочками агентов.</td></tr><tr><td>AgentForce</td><td><span class="green">🟢</span></td><td>Анонс новых метаданных для CI/CD и инструментов визуализации отладки.</td></tr><tr><td>LangGraph</td><td><span class="green">🟢</span></td><td>Выход в стабильные версии и улучшение систем чекпоинтов.</td></tr><tr><td>n8n</td><td><span class="green">🟢</span></td><td>Стратегическое партнерство с SAP и оценка компании в $5.2 млрд.</td></tr></tbody></table>
+<h2>2. Изменения по критериям топологии</h2>
+
+<table><thead><tr><th>Критерий</th><th>Vertex AI</th><th>AWS Bedrock</th><th>Azure Foundry</th><th>AutoGen</th><th>AgentForce</th><th>LangGraph</th><th>n8n</th></tr></thead><tbody><tr><td>Multi-tenancy</td><td>-</td><td><span class="warn">⚠</span></td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td></tr><tr><td>Self-host</td><td>-</td><td>-</td><td><span class="up">↑</span></td><td>-</td><td>-</td><td>-</td><td>-</td></tr><tr><td>Code+No-code</td><td>-</td><td>-</td><td>-</td><td>-</td><td><span class="up">↑</span></td><td>-</td><td>-</td></tr><tr><td>Git-native dev</td><td>-</td><td>-</td><td>-</td><td>-</td><td><span class="up">↑</span></td><td>-</td><td>-</td></tr><tr><td>Indep. deploy</td><td>-</td><td>-</td><td>-</td><td>-</td><td><span class="up">↑</span></td><td>-</td><td>-</td></tr><tr><td>Indep. scale</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td></tr><tr><td>Unified API + контракт</td><td>-</td><td><span class="up">↑</span></td><td>-</td><td><span class="warn">⚠</span></td><td><span class="up">↑</span></td><td>-</td><td>-</td></tr><tr><td>LLM routing</td><td><span class="up">↑</span></td><td>-</td><td>-</td><td>-</td><td><span class="up">↑</span></td><td>-</td><td>-</td></tr><tr><td>Secrets/tenant</td><td>-</td><td><span class="up">↑</span></td><td>-</td><td><span class="warn">⚠</span></td><td>-</td><td>-</td><td>-</td></tr><tr><td>Prod-ops</td><td>-</td><td><span class="up">↑</span></td><td><span class="up">↑</span></td><td><span class="up">↑</span></td><td><span class="up">↑</span></td><td><span class="up">↑</span></td><td>-</td></tr></tbody></table>
+<p style='font-size:.8rem;color:#64748b;margin:-8px 0 16px'><span style='color:#4ade80;font-weight:bold'>↑</span> улучшила позицию &nbsp;·&nbsp; <span style='color:#f87171;font-weight:bold'>↓</span> ухудшила &nbsp;·&nbsp; <span style='color:#fbbf24;font-weight:bold'>⚠</span> анонс / в разработке &nbsp;·&nbsp; <strong>-</strong> без изменений</p>
+<h2>3. Детали по платформам</h2>
+
+<strong>Vertex AI</strong>: 
+<p>Google активно развивает направление автономных агентов и фокусируется на безопасности данных, предлагая решения для enterprise-клиентов. Платформа укрепляет позиции лидера в разработке AI-приложений, интегрируя аналитические функции с LLM.</p>
+<p>Сигналы: <a href="https://cloud.google.com/blog/topics/developers-practitioners/winners-and-highlights-of-the-gemini-live-agent-challenge/" target="_blank">Победители Gemini Live Agent Challenge</a>, <a href="https://cloud.google.com/blog/products/ai-machine-learning/google-named-a-leader-in-the-gartner-magic-quadrant/" target="_blank">Лидерство в Gartner Magic Quadrant</a>, <a href="https://cloud.google.com/blog/products/data-analytics/more-than-100x-faster-and-cheaper-llm-powered-sql-queries-with-proxy-models/" target="_blank">Ускорение LLM-запросов в базах данных</a></p>
+
+<strong>AWS Bedrock</strong>: 
+<p>AWS внедряет гранулярное управление доступом и глубокую интеграцию с сетевой безопасностью Cisco для корпоративных агентов. Фокус смещается на real-time голосовые интерфейсы и защиту данных на уровне документов.</p>
+<p>Сигналы: <a href="https://aws.amazon.com/blogs/machine-learning/restrict-access-to-sensitive-documents-in-your-amazon-quick-knowledge-bases-for-amazon-s3/" target="_blank">Ограничение доступа к документам в S3</a>, <a href="https://aws.amazon.com/blogs/machine-learning/real-time-voice-agents-with-stream-vision-agents-and-amazon-nova-2-sonic/" target="_blank">Голосовые агенты на Nova 2 Sonic</a>, <a href="https://aws.amazon.com/blogs/machine-learning/securing-ai-agents-how-aws-and-cisco-ai-defense-scale-mcp-and-a2a-deployments/" target="_blank">Безопасность агентов с Cisco AI Defense</a></p>
+
+<strong>Azure Foundry</strong>: 
+<p>Релиз Foundry Local 1.1 существенно улучшает возможности локальной разработки и отладки, добавляя поддержку мультимодальных функций. Экосистема моделей пополнилась передовыми версиями GPT и Claude, делая локальный стэк более зрелым.</p>
+<p>Сигналы: <a href="https://devblogs.microsoft.com/foundry/foundry-local-v1-1/" target="_blank">Foundry Local 1.1 с поддержкой транскрипции и WebGPU</a>, <a href="https://devblogs.microsoft.com/foundry/whats-new-in-microsoft-foundry-apr-2026/" target="_blank">Обновление моделей и инструментов в апреле</a></p>
+
+<strong>AutoGen</strong>: 
+<p>Сообщество фокусируется на безопасности памяти (OWASP Agent Memory Guard) и надежности сложных многоагентных систем. Появляются протоколы для работы с долговременными рабочими пространствами (AI Workroot).</p>
+<p>Сигналы: <a href="https://github.com/microsoft/autogen/discussions/7686" target="_blank">Trust scoring для мультиагентных систем</a>, <a href="https://github.com/microsoft/autogen/discussions/7696" target="_blank">AI Workroot для durable AI работы</a>, <a href="https://github.com/microsoft/autogen/discussions/7673" target="_blank">Защита от отравления памяти агентов</a></p>
+
+<strong>AgentForce</strong>: 
+<p>Salesforce радикально обновляет жизненный цикл разработки агентов, внедряя версионируемые метаданные и визуализацию отладки через AgentLens. Упрощается процесс развертывания бизнес-логики через стандарты MCP.</p>
+<p>Сигналы: <a href="https://developer.salesforce.com/blogs/2026/05/new-agentforce-metadata-and-development-lifecycle" target="_blank">Новый жизненный цикл разработки и метаданные</a>, <a href="https://developer.salesforce.com/blogs/2026/05/expose-custom-apex-as-a-hosted-mcp-tool-for-agents" target="_blank">Apex как Hosted MCP Tool</a>, <a href="https://developer.salesforce.com/blogs/2026/05/agentlens-debug-agentforce-with-interactive-visualizations" target="_blank">Инструмент визуализации AgentLens</a></p>
+
+<strong>LangGraph</strong>: 
+<p>Платформа достигла стабильности 1.x, закрепив инфраструктуру для управления состоянием агентов. Улучшена работа с чекпоинтами для SQLite и Postgres, что критично для stateful-приложений.</p>
+<p>Сигналы: <a href="https://github.com/langchain-ai/langgraph/releases/tag/1.2.0" target="_blank">Стабильный релиз LangGraph 1.2.0</a>, <a href="https://github.com/langchain-ai/langgraph/releases/tag/checkpointpostgres%3D%3D3.1.0" target="_blank">Стабильные чекпоинты для Postgres/SQLite</a></p>
+
+<strong>n8n</strong>: 
+<p>Стратегическое вливание капитала от SAP и глубокая интеграция в Joule Studio подтверждают зрелость n8n в enterprise-сегменте. Платформа становится стандартом визуальной оркестрации AI-процессов.</p>
+<p>Сигналы: <a href="https://blog.n8n.io/n8n-sap/" target="_blank">Инвестиции SAP в n8n</a>, <a href="https://blog.n8n.io/n8n-partners-with-sap-to-bring-visual-ai-workflow-orchestration-to-enterprise/" target="_blank">Интеграция n8n в SAP Joule Studio</a></p>
+
+<h2>4. Угрозы для SL2 AI Platform</h2>
+
+<table><thead><tr><th>Угроза</th><th>Платформа</th><th>Критерий SL2 AI Platform</th><th>Приоритет</th></tr></thead><tbody><tr><td>Интеграция Visual AI в Enterprise (SAP)</td><td>n8n</td><td>Code+No-code</td><td>Высокий</td></tr><tr><td>Локальная разработка и отладка (Local Foundry)</td><td>Azure Foundry</td><td>Self-host / Prod-ops</td><td>Высокий</td></tr><tr><td>Стандартизация метаданных для CI/CD</td><td>AgentForce</td><td>Git-native dev / Prod-ops</td><td>Средний</td></tr></tbody></table>
+<h2>5. Выводы для команды</h2>
+
+<ul><li>Конкуренты активно закрывают разрыв в области «Prod-ops» и «отладки» (AgentLens, Foundry Local), что делает наши инструменты мониторинга и отладки ключевым дифференциатором.</li><li>Интеграция n8n с SAP показывает, что крупные корпорации выбирают визуальные инструменты для оркестрации, SL2 AI Platform должна подчеркивать свое преимущество в multi-tenancy и self-hosted безопасности для таких клиентов.</li><li>Актуальность стандартов MCP растет, необходимо обеспечить бесшовную совместимость SL2 AI Platform с этими протоколами для удержания разработчиков.</li><li>Безопасность памяти агентов (OWASP Guard) становится индустриальным стандартом — стоит рассмотреть внедрение аналогичных механизмов защиты в SL2 AI Platform.</li></ul>
+<hr>
+<em>Сгенерировано: 15.05.2026, 21:18:55 МСК | Источники: RSS + GitHub Releases + Gemini 3.1 Flash</em>
+<hr>
+</div>
+</body>
+</html>
