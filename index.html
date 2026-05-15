@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI Platform Monitor</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+         background: #0f1117; color: #e2e8f0; padding: 32px 16px; line-height: 1.6; }
+  .container { max-width: 1100px; margin: 0 auto; }
+  h1 { font-size: 1.8rem; color: #7dd3fc; border-bottom: 2px solid #1e3a5f;
+       padding-bottom: 12px; margin: 0 0 24px; }
+  h2 { font-size: 1.2rem; color: #94a3b8; text-transform: uppercase; letter-spacing: .05em;
+       margin: 32px 0 12px; border-left: 3px solid #3b82f6; padding-left: 10px; }
+  h3 { font-size: 1rem; color: #7dd3fc; margin: 20px 0 8px; }
+  p { margin-bottom: 10px; color: #cbd5e1; }
+  a { color: #60a5fa; text-decoration: none; }
+  a:hover { text-decoration: underline; }
+  strong { color: #f1f5f9; }
+  hr { border: none; border-top: 1px solid #1e293b; margin: 24px 0; }
+  em { color: #94a3b8; font-style: normal; font-size: .85rem; }
+  table { width: 100%; border-collapse: collapse; margin: 12px 0 20px; font-size: .875rem; }
+  th { background: #1e293b; color: #94a3b8; text-align: left;
+       padding: 10px 12px; border-bottom: 2px solid #334155; font-weight: 600; }
+  td { padding: 9px 12px; border-bottom: 1px solid #1e293b; vertical-align: top; }
+  tr:hover td { background: #111827; }
+  ul, ol { padding-left: 24px; margin-bottom: 12px; }
+  li { color: #cbd5e1; margin-bottom: 6px; }
+  .green  { color: #4ade80; }
+  .yellow { color: #fbbf24; }
+  .red    { color: #f87171; }
+  .up     { color: #4ade80; font-weight: bold; }
+  .down   { color: #f87171; font-weight: bold; }
+  .warn   { color: #fbbf24; font-weight: bold; }
+</style>
+</head>
+<body>
+<div class="container">
+<hr>
+<h1>AI Platform Monitor — неделя 08.05–15.05.2026</h1>
+
+<h2>1. Сводка</h2>
+
+<table><thead><tr><th>Платформа</th><th>Активность</th><th>Главный сигнал</th></tr></thead><tbody><tr><td>Vertex AI</td><td><span class="green">🟢</span></td><td>Лидерство в Magic Quadrant и фокус на Agentic AI</td></tr><tr><td>AWS Bedrock</td><td><span class="green">🟢</span></td><td>Масштабирование безопасности и контроля агентов</td></tr><tr><td>Azure Foundry</td><td><span class="green">🟢</span></td><td>GA Foundry Local и глубокая интеграция моделей</td></tr><tr><td>AutoGen</td><td><span class="green">🟢</span></td><td>Вектор на безопасность памяти и доверие в multi-agent</td></tr><tr><td>AgentForce</td><td><span class="green">🟢</span></td><td>Переход к «Agent-first» разработке и метаданным</td></tr><tr><td>LangGraph</td><td><span class="green">🟢</span></td><td>Стабилизация v1.x и фокус на событийном потоке</td></tr><tr><td>n8n</td><td><span class="green">🟢</span></td><td>Инвестиции SAP и фокус на enterprise-оркестрацию</td></tr></tbody></table>
+<p>🟢 активная неделя (3+ обновлений) 🟡 умеренная (1-2) 🔴 тишина</p>
+
+<h2>2. Изменения по критериям топологии</h2>
+
+<table><thead><tr><th>Критерий</th><th>Vertex AI</th><th>AWS Bedrock</th><th>Azure Foundry</th><th>AutoGen</th><th>AgentForce</th><th>LangGraph</th><th>n8n</th></tr></thead><tbody><tr><td>Multi-tenancy</td><td>-</td><td><span class="up">↑</span></td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td></tr><tr><td>Self-host</td><td>-</td><td>-</td><td><span class="up">↑</span></td><td>-</td><td>-</td><td>-</td><td>-</td></tr><tr><td>Code+No-code</td><td>-</td><td>-</td><td>-</td><td>-</td><td><span class="up">↑</span></td><td>-</td><td>-</td></tr><tr><td>Git-native dev</td><td>-</td><td>-</td><td>-</td><td>-</td><td><span class="up">↑</span></td><td>-</td><td>-</td></tr><tr><td>Indep. deploy</td><td>-</td><td>-</td><td>-</td><td>-</td><td><span class="up">↑</span></td><td>-</td><td>-</td></tr><tr><td>Indep. scale</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td></tr><tr><td>Unified API + контракт</td><td>-</td><td><span class="up">↑</span></td><td>-</td><td>-</td><td><span class="up">↑</span></td><td>-</td><td>-</td></tr><tr><td>LLM routing</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td></tr><tr><td>Secrets/tenant</td><td>-</td><td><span class="up">↑</span></td><td>-</td><td><span class="up">↑</span></td><td>-</td><td>-</td><td>-</td></tr><tr><td>Prod-ops</td><td>-</td><td><span class="up">↑</span></td><td><span class="up">↑</span></td><td><span class="up">↑</span></td><td><span class="up">↑</span></td><td><span class="up">↑</span></td><td>-</td></tr></tbody></table>
+<h2>3. Детали по платформам</h2>
+
+<strong>Vertex AI</strong>: Google укрепил позиции в Gartner Magic Quadrant, фокусируясь на создании следующего поколения AI-агентов вне текстовых интерфейсов. Продолжается активная интеграция LLM в аналитические инструменты баз данных для кратного ускорения SQL-запросов.
+<p>Сигналы: Лидерство Gartner <a href="https://cloud.google.com/blog/products/ai-machine-learning/google-named-a-leader-in-the-gartner-magic-quadrant/" target="_blank">Ссылка</a>, Gemini Live Agent Challenge <a href="https://cloud.google.com/blog/topics/developers-practitioners/winners-and-highlights-of-the-gemini-live-agent-challenge/" target="_blank">Ссылка</a></p>
+
+<strong>AWS Bedrock</strong>: AWS активно закрывает enterprise-риски, внедряя глубокий контроль доступа к документам и интеграцию с Cisco для защиты агентов. Новые инструменты для голосовых агентов в связке с Nova 2 Sonic значительно упрощают путь к production.
+<p>Сигналы: Безопасность агентов с Cisco <a href="https://aws.amazon.com/blogs/machine-learning/securing-ai-agents-how-aws-and-cisco-ai-defense-scale-mcp-and-a2a-deployments/" target="_blank">Ссылка</a>, Контроль доступа в Quick <a href="https://aws.amazon.com/blogs/machine-learning/restrict-access-to-sensitive-documents-in-your-amazon-quick-knowledge-bases-for-amazon-s3/" target="_blank">Ссылка</a></p>
+
+<strong>Azure Foundry</strong>: Платформа достигла значимых результатов с выходом Foundry Local GA, позволяя запускать сложные модели локально. Обновление включает мощный инструментарий для отладки и мониторинга, а также поддержку широкого спектра новейших моделей.
+<p>Сигналы: Foundry Local GA <a href="https://devblogs.microsoft.com/foundry/foundry-local-v1-1/" target="_blank">Ссылка</a>, Что нового в апреле 2026 <a href="https://devblogs.microsoft.com/foundry/whats-new-in-microsoft-foundry-apr-2026/" target="_blank">Ссылка</a></p>
+
+<strong>AutoGen</strong>: Сообщество смещает фокус на безопасность multi-agent систем, внедряя инструменты защиты памяти от poisoning-атак. Также прослеживается тренд на создание стандартов доверия (trust scoring) для автономных агентов.
+<p>Сигналы: Защита памяти OWASP <a href="https://github.com/microsoft/autogen/discussions/7673" target="_blank">Ссылка</a>, Trust scoring <a href="https://github.com/microsoft/autogen/discussions/7686" target="_blank">Ссылка</a></p>
+
+<strong>AgentForce</strong>: Salesforce радикально пересматривает цикл разработки, переходя к версионированным метаданным и bundle-развертываниям. Инструментарий AgentLens предоставляет новые возможности для визуальной отладки оркестрации, что критично для сложных сценариев.
+<p>Сигналы: Новый жизненный цикл метаданных <a href="https://developer.salesforce.com/blogs/2026/05/new-agentforce-metadata-and-development-lifecycle" target="_blank">Ссылка</a>, Визуальная отладка AgentLens <a href="https://developer.salesforce.com/blogs/2026/05/agentlens-debug-agentforce-with-interactive-visualizations" target="_blank">Ссылка</a></p>
+
+<strong>LangGraph</strong>: Произошла стабилизация API в версии 1.x и расширение функционала для работы с событийными потоками. Улучшены механизмы сохранения состояния (checkpoints), что приближает систему к уровню надежности enterprise-решений.
+<p>Сигналы: Релиз 1.2.0 <a href="https://github.com/langchain-ai/langgraph/releases/tag/1.2.0" target="_blank">Ссылка</a>, Обновление чекпоинтов <a href="https://github.com/langchain-ai/langgraph/releases/tag/checkpoint%3D%3D4.1.0" target="_blank">Ссылка</a></p>
+
+<strong>n8n</strong>: Стратегическая инвестиция со стороны SAP подчеркивает высокий спрос на визуальную оркестрацию в enterprise-сегменте. Интеграция с Joule Studio делает n8n ключевым инструментом для автоматизации бизнес-процессов внутри экосистемы SAP.
+<p>Сигналы: Инвестиции SAP <a href="https://blog.n8n.io/n8n-sap/" target="_blank">Ссылка</a>, Кейс Mercedes-Benz <a href="https://blog.n8n.io/mercedes-benz-n8n/" target="_blank">Ссылка</a></p>
+
+<h2>4. Угрозы для SL2 AI Platform</h2>
+
+<table><thead><tr><th>Угроза</th><th>Платформа</th><th>Критерий SL2 AI Platform</th><th>Приоритет</th></tr></thead><tbody><tr><td>Готовые инструменты визуальной отладки агентов</td><td>AgentForce (AgentLens)</td><td>Prod-ops</td><td>Высокий</td></tr><tr><td>Глубокая интеграция локального runtime в облако</td><td>Azure Foundry</td><td>Self-host</td><td>Средний</td></tr><tr><td>Стандартизация безопасности памяти агентов</td><td>AutoGen</td><td>Secrets/tenant</td><td>Средний</td></tr></tbody></table>
+<h2>5. Выводы для команды</h2>
+
+<ol><li>Конкуренты активно внедряют инструменты визуальной отладки (AgentLens, Foundry Local). Нам необходимо ускорить реализацию инструментов визуализации состояний для SL2 AI Platform, чтобы не проигрывать в удобстве UX для dev-команд.</li><li>Безопасность памяти агентов становится «горячей» темой. Следует рассмотреть внедрение встроенных механизмов защиты от poisoning-атак в SL2 AI Platform в качестве дифференциатора.</li><li>Успех n8n и SAP подтверждает тренд на визуальную оркестрацию. Нужно подчеркивать в маркетинге SL2 AI Platform, что наше Git-native решение сочетает гибкость кода с удобством управления агентами, превосходя по надежности чисто no-code инструменты.</li><li>Разрыв в средствах контроля доступа между облачными гигантами (AWS/Azure) и self-hosted решениями сокращается. Нужно продолжать強化 (усиливать) механизмы изоляции tenant'ов в SL2 AI Platform, чтобы сохранять статус enterprise-grade.</li></ol>
+<hr>
+<em>Сгенерировано: 15.05.2026, 17:34:21 | Источники: RSS + GitHub Releases + Gemini 2.5 Flash</em>
+<hr>
+</div>
+</body>
+</html>
