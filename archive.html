@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI Platform Monitor — Архив отчётов</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+         background: #0f1117; color: #e2e8f0; line-height: 1.6; height: 100vh; display: flex; flex-direction: column; }
+  a { color: #60a5fa; text-decoration: none; }
+  a:hover { text-decoration: underline; }
+
+  header { padding: 18px 24px; border-bottom: 1px solid #1e293b; background: #0d0f15;
+           display: flex; align-items: center; gap: 16px; flex-wrap: wrap; }
+  header h1 { font-size: 1.25rem; color: #7dd3fc; }
+  header .nav { margin-left: auto; display: flex; gap: 18px; font-size: .9rem; }
+
+  .layout { flex: 1; display: flex; min-height: 0; }
+
+  aside { width: 300px; flex-shrink: 0; border-right: 1px solid #1e293b; overflow-y: auto;
+          background: #0d0f15; padding: 12px; }
+  aside .heading { font-size: .75rem; text-transform: uppercase; letter-spacing: .08em;
+                   color: #64748b; padding: 8px 10px; }
+  .report-item { display: block; padding: 12px 14px; margin-bottom: 6px; border-radius: 8px;
+                 border: 1px solid #1e293b; background: #11151d; cursor: pointer; transition: .12s; }
+  .report-item:hover { border-color: #3b82f6; background: #151b27; text-decoration: none; }
+  .report-item.active { border-color: #3b82f6; background: #15233b; }
+  .report-item .date { font-size: 1rem; color: #e2e8f0; font-weight: 600; }
+  .report-item .sub  { font-size: .75rem; color: #64748b; margin-top: 2px; }
+  .report-item .badge { display: inline-block; font-size: .65rem; background: #16a34a; color: #fff;
+                        padding: 1px 7px; border-radius: 10px; margin-left: 6px; vertical-align: middle; }
+
+  main { flex: 1; min-width: 0; position: relative; background: #0f1117; }
+  iframe { width: 100%; height: 100%; border: 0; background: #0f1117; }
+  .placeholder { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center;
+                 color: #64748b; font-size: .95rem; padding: 24px; text-align: center; }
+  .state { padding: 18px; color: #94a3b8; font-size: .9rem; }
+  .state.err { color: #f87171; }
+
+  @media (max-width: 760px) {
+    .layout { flex-direction: column; }
+    aside { width: 100%; max-height: 40vh; border-right: 0; border-bottom: 1px solid #1e293b; }
+  }
+</style>
+</head>
+<body>
+<header>
+  <h1>📑 Архив отчётов</h1>
+  <div class="nav">
+    <a href="./index.html">← Последний отчёт</a>
+    <a href="https://github.com/sasha09012freelancing-hash/AI-Platform-Monitor/tree/main/reports" target="_blank">GitHub</a>
+  </div>
+</header>
+
+<div class="layout">
+  <aside>
+    <div class="heading">Все отчёты</div>
+    <div id="list"><div class="state">Загрузка списка…</div></div>
+  </aside>
+  <main>
+    <div class="placeholder" id="placeholder">Выберите отчёт слева, чтобы открыть его здесь</div>
+    <iframe id="viewer" title="Отчёт" style="display:none"></iframe>
+  </main>
+</div>
+
+<script>
+  const REPO = 'sasha09012freelancing-hash/AI-Platform-Monitor';
+  const API  = `https://api.github.com/repos/${REPO}/contents/reports`;
+  const listEl = document.getElementById('list');
+  const viewer = document.getElementById('viewer');
+  const placeholder = document.getElementById('placeholder');
+
+  // YYYY-MM-DD -> "25 мая 2026"
+  const MONTHS = ['января','февраля','марта','апреля','мая','июня','июля','августа','сентября','октября','ноября','декабря'];
+  function ruDate(iso) {
+    const [y, m, d] = iso.split('-').map(Number);
+    return `${d} ${MONTHS[m - 1]} ${y}`;
+  }
+
+  function open(item, file) {
+    document.querySelectorAll('.report-item').forEach(el => el.classList.remove('active'));
+    item.classList.add('active');
+    placeholder.style.display = 'none';
+    viewer.style.display = 'block';
+    viewer.src = `./reports/${file}`;
+    // обновляем якорь в адресной строке, чтобы ссылкой можно было поделиться
+    history.replaceState(null, '', `#${file}`);
+  }
+
+  async function load() {
+    try {
+      const resp = await fetch(API, { headers: { 'Accept': 'application/vnd.github+json' } });
+      if (!resp.ok) throw new Error(`GitHub API ${resp.status}`);
+      const files = (await resp.json())
+        .filter(f => f.type === 'file' && /^AI-Monitor-\d{4}-\d{2}-\d{2}\.html$/.test(f.name))
+        .map(f => ({ name: f.name, date: f.name.replace('AI-Monitor-', '').replace('.html', '') }))
+        .sort((a, b) => b.date.localeCompare(a.date)); // новые сверху
+
+      if (!files.length) { listEl.innerHTML = '<div class="state">Отчётов пока нет.</div>'; return; }
+
+      listEl.innerHTML = '';
+      files.forEach((f, i) => {
+        const el = document.createElement('a');
+        el.className = 'report-item';
+        el.innerHTML = `<div class="date">${ruDate(f.date)}${i === 0 ? '<span class="badge">последний</span>' : ''}</div>` +
+                       `<div class="sub">AI-Monitor-${f.date}</div>`;
+        el.addEventListener('click', e => { e.preventDefault(); open(el, f.name); });
+        listEl.appendChild(el);
+      });
+
+      // если в URL есть #файл — открываем его, иначе самый свежий
+      const wanted = decodeURIComponent(location.hash.slice(1));
+      const target = files.find(f => f.name === wanted) || files[0];
+      const idx = files.indexOf(target);
+      open(listEl.children[idx], target.name);
+    } catch (e) {
+      listEl.innerHTML = `<div class="state err">Не удалось загрузить список: ${e.message}.<br><br>` +
+        `Можно открыть отчёты напрямую на ` +
+        `<a href="https://github.com/${REPO}/tree/main/reports" target="_blank">GitHub</a>.</div>`;
+    }
+  }
+
+  load();
+</script>
+</body>
+</html>
