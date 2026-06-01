@@ -71,6 +71,20 @@
   const viewer = document.getElementById('viewer');
   const placeholder = document.getElementById('placeholder');
 
+  // Отчёт показывается в iframe — прячем внутри него ссылку «Архив отчётов»,
+  // чтобы не было «окна в окне». Тот же origin → доступ к contentDocument разрешён.
+  viewer.addEventListener('load', () => {
+    try {
+      const doc = viewer.contentDocument;
+      if (!doc) return;
+      const byId = doc.getElementById('archive-link');
+      if (byId) { byId.style.display = 'none'; return; }
+      doc.querySelectorAll('a[href*="archive.html"]').forEach(a => {
+        (a.closest('div') || a).style.display = 'none';
+      });
+    } catch (e) { /* другой origin — игнорируем */ }
+  });
+
   // YYYY-MM-DD -> "25 мая 2026"
   const MONTHS = ['января','февраля','марта','апреля','мая','июня','июля','августа','сентября','октября','ноября','декабря'];
   function ruDate(iso) {
