@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI Platform Monitor</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+         background: #0f1117; color: #e2e8f0; padding: 32px 16px; line-height: 1.6; }
+  .container { max-width: 1100px; margin: 0 auto; }
+  h1 { font-size: 1.8rem; color: #7dd3fc; border-bottom: 2px solid #1e3a5f;
+       padding-bottom: 12px; margin: 0 0 24px; }
+  h2 { font-size: 1.2rem; color: #94a3b8; text-transform: uppercase; letter-spacing: .05em;
+       margin: 32px 0 12px; border-left: 3px solid #3b82f6; padding-left: 10px; }
+  h3 { font-size: 1rem; color: #7dd3fc; margin: 20px 0 8px; }
+  p { margin-bottom: 10px; color: #cbd5e1; }
+  a { color: #60a5fa; text-decoration: none; }
+  a:hover { text-decoration: underline; }
+  strong { color: #f1f5f9; }
+  hr { border: none; border-top: 1px solid #1e293b; margin: 24px 0; }
+  em { color: #94a3b8; font-style: normal; font-size: .85rem; }
+  table { width: 100%; border-collapse: collapse; margin: 12px 0 20px; font-size: .875rem; }
+  th { background: #1e293b; color: #94a3b8; text-align: left;
+       padding: 10px 12px; border-bottom: 2px solid #334155; font-weight: 600; }
+  td { padding: 9px 12px; border-bottom: 1px solid #1e293b; vertical-align: top; }
+  tr:hover td { background: #111827; }
+  ul, ol { padding-left: 24px; margin-bottom: 12px; }
+  li { color: #cbd5e1; margin-bottom: 6px; }
+  .green  { color: #4ade80; }
+  .yellow { color: #fbbf24; }
+  .red    { color: #f87171; }
+  .up     { color: #4ade80; font-weight: bold; }
+  .down   { color: #f87171; font-weight: bold; }
+  .warn   { color: #fbbf24; font-weight: bold; }
+</style>
+</head>
+<body>
+<div class="container">
+<hr>
+<h1>AI Platform Monitor — неделя 01.06–08.06.2026</h1>
+
+<h2>1. Сводка</h2>
+
+<table><thead><tr><th>Платформа</th><th>Активность</th><th>Главный сигнал</th></tr></thead><tbody><tr><td>Vertex AI</td><td><span class="green">🟢</span></td><td>Масштабирование агентов на GKE Autopilot и MCP-интеграции</td></tr><tr><td>AWS Bedrock</td><td><span class="green">🟢</span></td><td>Углубление функций Ops-мониторинга и внедрение новых моделей</td></tr><tr><td>Azure Foundry</td><td><span class="green">🟢</span></td><td>Фокус на продакшн-готовности (память, оптимизация, инструменты)</td></tr><tr><td>AutoGen</td><td><span class="green">🟢</span></td><td>Рост middleware-решений для безопасности и governance</td></tr><tr><td>AgentForce</td><td><span class="green">🟢</span></td><td>Укрепление интеграций с данными и фокус на производственные сценарии</td></tr><tr><td>LangGraph</td><td><span class="green">🟢</span></td><td>Итеративное развитие SDK и расширение поддержки моделей</td></tr><tr><td>n8n</td><td><span class="green">🟢</span></td><td>Развитие инструментов отладки и Governance для AI-пайплайнов</td></tr></tbody></table>
+<p>🟢 активная неделя (3+ обновлений) 🟡 умеренная (1-2) 🔴 тишина</p>
+
+<p style='font-size:.8rem;color:#64748b;margin:-8px 0 16px'>🟢 активная неделя (3+ обновлений) &nbsp;·&nbsp; 🟡 умеренная (1-2) &nbsp;·&nbsp; 🔴 тишина</p>
+<h2>2. Изменения по критериям топологии</h2>
+
+<table><thead><tr><th>Критерий</th><th>Vertex AI</th><th>AWS Bedrock</th><th>Azure Foundry</th><th>AutoGen</th><th>AgentForce</th><th>LangGraph</th><th>n8n</th></tr></thead><tbody><tr><td>Multi-tenancy</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td></tr><tr><td>Self-host</td><td>-</td><td>-</td><td><span class="warn">⚠</span></td><td>-</td><td>-</td><td>-</td><td>-</td></tr><tr><td>Code+No-code</td><td><span class="up">↑</span></td><td>-</td><td>-</td><td>-</td><td><span class="up">↑</span></td><td>-</td><td>-</td></tr><tr><td>Git-native dev</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td></tr><tr><td>Indep. deploy</td><td><span class="up">↑</span></td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td></tr><tr><td>Indep. scale</td><td><span class="up">↑</span></td><td><span class="up">↑</span></td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td></tr><tr><td>Unified API + контракт</td><td>-</td><td>-</td><td><span class="up">↑</span></td><td>-</td><td><span class="up">↑</span></td><td>-</td><td>-</td></tr><tr><td>LLM routing</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td></tr><tr><td>Secrets/tenant</td><td>-</td><td>-</td><td><span class="up">↑</span></td><td><span class="warn">⚠</span></td><td>-</td><td>-</td><td>-</td></tr><tr><td>Prod-ops</td><td><span class="up">↑</span></td><td><span class="up">↑</span></td><td><span class="up">↑</span></td><td><span class="up">↑</span></td><td><span class="up">↑</span></td><td>-</td><td><span class="up">↑</span></td></tr></tbody></table>
+<p style='font-size:.8rem;color:#64748b;margin:-8px 0 16px'><span style='color:#4ade80;font-weight:bold'>↑</span> улучшила позицию &nbsp;·&nbsp; <span style='color:#f87171;font-weight:bold'>↓</span> ухудшила &nbsp;·&nbsp; <span style='color:#fbbf24;font-weight:bold'>⚠</span> анонс / в разработке &nbsp;·&nbsp; <strong>-</strong> без изменений</p>
+<h2>3. Детали по платформам</h2>
+
+<strong>Vertex AI</strong>: Google делает ставку на бесшовную интеграцию агентов с инфраструктурой GKE и облачным хранилищем. Акцент смещен на масштабируемость и использование GCS в качестве контекстного хранилища через MCP.
+<p>Сигналы: <a href="https://cloud.google.com/blog/topics/developers-practitioners/scaling-ai-agents-a-step-by-step-guide-to-deploying-adk-on-gke-autopilot/" target="_blank">Scaling AI Agents on GKE</a>, <a href="https://cloud.google.com/blog/topics/developers-practitioners/build-ai-agents-faster-with-gcs-google-cloud-storage-mcp-server/" target="_blank">Google Cloud Storage MCP Servers</a></p>
+
+<strong>AWS Bedrock</strong>: Платформа активно внедряет инструменты самообслуживания и автоматизированного мониторинга (Ops Alert). Расширяется поддержка моделей через SageMaker, повышая эффективность выполнения агентных задач.
+<p>Сигналы: <a href="https://aws.amazon.com/blogs/machine-learning/how-to-build-self-driving-ai-operations-on-amazon-bedrock-at-scale/" target="_blank">Self-driving AI operations on Bedrock</a>, <a href="https://aws.amazon.com/blogs/machine-learning/nvidia-nemotron-3-ultra-now-available-on-amazon-sagemaker-jumpstart/" target="_blank">NVIDIA Nemotron 3 Ultra support</a></p>
+
+<strong>Azure Foundry</strong>: Microsoft фокусируется на трансформации из среды разработки в полноценный Enterprise-инструмент. Особое внимание уделено памяти агентов, надежности инструментов и управлению вычислительными ресурсами.
+<p>Сигналы: <a href="https://devblogs.microsoft.com/foundry/agent-optimizer-build2026/" target="_blank">Introducing Agent Optimizer</a>, <a href="https://devblogs.microsoft.com/foundry/announcing-foundry-managed-compute/" target="_blank">Foundry Managed Compute</a>, <a href="https://devblogs.microsoft.com/foundry/memory-build2026/" target="_blank">Reliable Agent Memory</a></p>
+
+<strong>AutoGen</strong>: Сообщество концентрируется на создании промежуточных слоев безопасности и Governance-интерфейсов. Проекты вроде Agent Memory Guard сигнализируют о зрелости системы в сторону контроля рисков.
+<p>Сигналы: <a href="https://github.com/microsoft/autogen/discussions/7792" target="_blank">Agent Memory Guard middleware</a>, <a href="https://github.com/microsoft/autogen/discussions/7804" target="_blank">Governance interceptor</a></p>
+
+<strong>AgentForce</strong>: Salesforce агрессивно внедряет AI-агентов в существующие бизнес-процессы. Новые MCP-серверы позволяют связывать облачные данные компании с внешними AI-решениями напрямую.
+<p>Сигналы: <a href="https://developer.salesforce.com/blogs/2026/06/the-mcp-server-for-marketing-cloud-engagement-is-now-ga" target="_blank">MCP Server for Marketing Cloud GA</a>, <a href="https://www.salesforce.com/blog/ai-agent-production-tips/" target="_blank">AI Agents to production tips</a></p>
+
+<strong>LangGraph</strong>: Идет планомерное улучшение стабильности SDK и расширение экосистемы коннекторов. Развитие платформы сфокусировано на повышении удобства использования для разработчиков графовых AI-приложений.
+<p>Сигналы: <a href="https://github.com/langchain-ai/langgraph/releases/tag/sdk%3D%3D0.4.2" target="_blank">LangGraph SDK 0.4.2</a>, <a href="https://github.com/langchain-ai/langgraph/releases/tag/1.2.4" target="_blank">LangGraph 1.2.4 updates</a></p>
+
+<strong>n8n</strong>: Платформа совершенствует свои инструменты отладки для работы с AI-агентами. Основной упор сделан на устранение галлюцинаций и мониторинг метрик производительности в продакшне.
+<p>Сигналы: <a href="https://blog.n8n.io/what-metrics-should-i-track-for-ai-agent-performance/" target="_blank">AI Agent performance metrics</a>, <a href="https://blog.n8n.io/how-to-debug-failures-or-missteps-in-ai-agent-behavior/" target="_blank">Debugging AI agents</a></p>
+
+<h2>4. Угрозы для SL2 AI Platform</h2>
+
+<table><thead><tr><th>Угроза</th><th>Платформа</th><th>Критерий SL2 AI Platform</th><th>Приоритет</th></tr></thead><tbody><tr><td>Внедрение управляемых вычислительных сред (Managed Compute) для open-source моделей</td><td>Azure Foundry</td><td>Self-host</td><td>Высокий</td></tr><tr><td>Внедрение middleware-уровней для защиты памяти и Governance</td><td>AutoGen</td><td>Secrets/tenant</td><td>Средний</td></tr><tr><td>Глубокая интеграция с бизнес-данными через MCP</td><td>AgentForce</td><td>Unified API + контракт</td><td>Средний</td></tr></tbody></table>
+<h2>5. Выводы для команды</h2>
+
+<ol><li>Наблюдается четкий индустриальный тренд на «Governance-by-design»: системы внедряют перехватчики (interceptors) и middleware для контроля действий агентов. SL2 AI Platform должна сделать упор на прозрачность этих механизмов.</li><li>Azure Foundry становится мощным конкурентом в Enterprise-сегменте за счет «Foundry Local» (Edge-решения), что требует от SL2 AI Platform подтверждения превосходства в качестве полноценного self-hosted решения с полным контролем данных.</li><li>Прослеживается переход от «простого исполнения агентов» к «управлению жизненным циклом и надежностью» (мониторинг, дебаг, метрики). Необходимо ускорить развитие блока Prod-ops в SL2 AI Platform.</li><li>Конкуренты активно используют стандарт MCP. Для сохранения конкурентоспособности SL2 AI Platform должна обеспечить нативную поддержку или совместимость с этим протоколом.</li></ol>
+<hr>
+<em>Сгенерировано: 08.06.2026, 06:00:10 МСК | Источники: RSS + GitHub Releases + Gemini 3.1 Flash</em>
+</div>
+</body>
+</html>
