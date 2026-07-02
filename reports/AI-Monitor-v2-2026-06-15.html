@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI Platform Monitor</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+         background: #0f1117; color: #e2e8f0; padding: 32px 16px; line-height: 1.6; }
+  .container { max-width: 1100px; margin: 0 auto; }
+  h1 { font-size: 1.8rem; color: #7dd3fc; border-bottom: 2px solid #1e3a5f;
+       padding-bottom: 12px; margin: 0 0 24px; }
+  h2 { font-size: 1.2rem; color: #94a3b8; text-transform: uppercase; letter-spacing: .05em;
+       margin: 32px 0 12px; border-left: 3px solid #3b82f6; padding-left: 10px; }
+  h3 { font-size: 1rem; color: #7dd3fc; margin: 20px 0 8px; }
+  p { margin-bottom: 10px; color: #cbd5e1; }
+  a { color: #60a5fa; text-decoration: none; }
+  a:hover { text-decoration: underline; }
+  strong { color: #f1f5f9; }
+  hr { border: none; border-top: 1px solid #1e293b; margin: 24px 0; }
+  em { color: #94a3b8; font-style: normal; font-size: .85rem; }
+  table { width: 100%; border-collapse: collapse; margin: 12px 0 20px; font-size: .875rem; }
+  th { background: #1e293b; color: #94a3b8; text-align: left;
+       padding: 10px 12px; border-bottom: 2px solid #334155; font-weight: 600; }
+  td { padding: 9px 12px; border-bottom: 1px solid #1e293b; vertical-align: top; }
+  tr:hover td { background: #111827; }
+  ul, ol { padding-left: 24px; margin-bottom: 12px; }
+  li { color: #cbd5e1; margin-bottom: 6px; }
+  .green  { color: #4ade80; }
+  .yellow { color: #fbbf24; }
+  .red    { color: #f87171; }
+  .up     { color: #4ade80; font-weight: bold; }
+  .down   { color: #f87171; font-weight: bold; }
+  .warn   { color: #fbbf24; font-weight: bold; }
+  .nav { display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px; }
+  .nav a { font-size: .9rem; text-decoration: none; }
+  .nav .back { color: #94a3b8; }
+  .nav .archive { color: #60a5fa; }
+</style>
+</head>
+<body>
+<div class="container">
+<div class="nav">
+  <a class="back" href="/AI-Platform-Monitor/">← Текущий отчёт</a>
+  <a class="archive" href="/AI-Platform-Monitor/archive.html">📑 Архив отчётов →</a>
+</div>
+<hr>
+<h1>AI Platform Monitor — неделя 08.06–15.06.2026</h1>
+
+<h2>1. Сводка</h2>
+
+<table><thead><tr><th>Платформа</th><th>Активность</th><th>Главный сигнал</th></tr></thead><tbody><tr><td>Vertex AI</td><td><span class="green">🟢</span></td><td>Углубление интеграции конфиденциальной инфраструктуры и агентных систем</td></tr><tr><td>AWS Bedrock</td><td><span class="green">🟢</span></td><td>Масштабное внедрение MCP-стандарта для агентных пайплайнов</td></tr><tr><td>Azure Foundry</td><td><span class="red">🔴</span></td><td>Отсутствие обновлений в отчетный период</td></tr><tr><td>AutoGen</td><td><span class="green">🟢</span></td><td>Фокус на безопасности (memory guard) и Governance-хуках</td></tr><tr><td>AgentForce</td><td><span class="green">🟢</span></td><td>Расширение функционала через Salesforce Skills и SDK</td></tr><tr><td>LangGraph</td><td><span class="green">🟢</span></td><td>Стабилизация CLI и улучшение интеграции с LLM-провайдерами</td></tr><tr><td>n8n</td><td><span class="green">🟢</span></td><td>Внедрение OpenTelemetry и фокус на Enterprise Governance</td></tr></tbody></table>
+<p>🟢 активная неделя (3+ обновлений) 🟡 умеренная (1-2) 🔴 тишина</p>
+
+<p style='font-size:.8rem;color:#64748b;margin:-8px 0 16px'>🟢 активная неделя (3+ обновлений) &nbsp;·&nbsp; 🟡 умеренная (1-2) &nbsp;·&nbsp; 🔴 тишина</p>
+<h2>2. Изменения по критериям топологии</h2>
+
+<table><thead><tr><th>Критерий</th><th>Vertex AI</th><th>AWS Bedrock</th><th>Azure Foundry</th><th>AutoGen</th><th>AgentForce</th><th>LangGraph</th><th>n8n</th></tr></thead><tbody><tr><td>Multi-tenancy</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td></tr><tr><td>Self-host</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td></tr><tr><td>Code+No-code</td><td><span class="up">↑</span></td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td></tr><tr><td>Git-native dev</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td></tr><tr><td>Indep. deploy</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td><span class="warn">⚠</span></td><td>-</td></tr><tr><td>Indep. scale</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td></tr><tr><td>Unified API + контракт</td><td>-</td><td><span class="warn">⚠</span></td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td></tr><tr><td>LLM routing</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td><span class="up">↑</span></td></tr><tr><td>Secrets/tenant</td><td>-</td><td>-</td><td>-</td><td><span class="warn">⚠</span></td><td>-</td><td>-</td><td>-</td></tr><tr><td>Prod-ops</td><td>-</td><td><span class="warn">⚠</span></td><td>-</td><td><span class="warn">⚠</span></td><td>-</td><td>-</td><td><span class="up">↑</span></td></tr></tbody></table>
+<p style='font-size:.8rem;color:#64748b;margin:-8px 0 16px'><span style='color:#4ade80;font-weight:bold'>↑</span> улучшила позицию &nbsp;·&nbsp; <span style='color:#f87171;font-weight:bold'>↓</span> ухудшила &nbsp;·&nbsp; <span style='color:#fbbf24;font-weight:bold'>⚠</span> анонс / в разработке &nbsp;·&nbsp; <strong>-</strong> без изменений</p>
+<h2>3. Детали по платформам</h2>
+
+<strong>Vertex AI</strong>:
+<p>Google активно развивает инфраструктуру для агентных систем, уделяя внимание конфиденциальности и интеграции данных. Основной упор сделан на работу с Foundation Models в контексте безопасности данных и бизнес-аналитики.</p>
+<p>Сигналы: <a href="https://cloud.google.com/blog/products/identity-security/powering-the-next-era-of-confidential-ai/" target="_blank">развитие Confidential AI</a>, <a href="https://cloud.google.com/blog/products/business-intelligence/dashboard-agents-in-looker/" target="_blank">интеграция агентов в Looker</a></p>
+
+<strong>AWS Bedrock</strong>:
+<p>AWS агрессивно внедряет протокол MCP для унификации взаимодействия агентов с внешними данными и инструментами. Платформа делает ставку на автоматизацию процессов через Bedrock Data Automation и улучшение оценки качества работы агентов.</p>
+<p>Сигналы: <a href="https://aws.amazon.com/blogs/machine-learning/building-supercharger-how-rocket-close-optimized-title-operations-with-agentic-ai/" target="_blank">оптимизация операций с помощью агентов</a>, <a href="https://aws.amazon.com/blogs/machine-learning/evaluate-ai-agents-systematically-with-agent-evalkit/" target="_blank">внедрение Agent-EvalKit</a></p>
+
+<strong>Azure Foundry</strong>:
+<p>На данной неделе существенных обновлений или публичных анонсов по платформе зафиксировано не было.</p>
+<p>Сигналы: <a href="https://azure.microsoft.com/en-us/updates/" target="_blank">страница обновлений Azure</a></p>
+
+<strong>AutoGen</strong>:
+<p>Сообщество смещает фокус на Enterprise-требования: безопасность памяти, аудит-трейлы и защиту от вредоносных действий агентов. Разрабатываются механизмы предотвращения зацикливания и неконтролируемых затрат API.</p>
+<p>Сигналы: <a href="https://github.com/microsoft/autogen/discussions/7792" target="_blank">внедрение Agent Memory Guard</a>, <a href="https://github.com/microsoft/autogen/discussions/7726" target="_blank">реализация Governance-хуков</a></p>
+
+<strong>AgentForce</strong>:
+<p>Salesforce продолжает глубокую интеграцию своей экосистемы с AI-агентами через новые SDK и навыки (Skills). Основное внимание уделено созданию production-ready решений внутри существующей CRM-архитектуры.</p>
+<p>Сигналы: <a href="https://developer.salesforce.com/blogs/2026/06/the-salesforce-developers-guide-to-the-summer-26-release" target="_blank">релиз Summer '26</a>, <a href="https://developer.salesforce.com/blogs/2026/06/build-production-ready-apps-in-claude-code-with-salesforce-skills" target="_blank">разработка приложений через Salesforce Skills</a></p>
+
+<strong>LangGraph</strong>:
+<p>Продолжается работа над стабильностью CLI и повышением удобства разработки агентных графов. Фокус остается на поддержке широкого спектра LLM-провайдеров через консистентные библиотеки.</p>
+<p>Сигналы: <a href="https://github.com/langchain-ai/langgraph/releases/tag/1.2.5" target="_blank">обновление langgraph до 1.2.5</a>, <a href="https://github.com/langchain-ai/langgraph/releases/tag/cli%3D%3D0.4.29" target="_blank">улучшение langgraph-cli</a></p>
+
+<strong>n8n</strong>:
+<p>Платформа укрепляет позиции в Enterprise-сегменте, интегрируя OpenTelemetry для глубокой наблюдаемости. Активно продвигаются лучшие практики по LLM-роутингу и управлению сложными агентными пайплайнами.</p>
+<p>Сигналы: <a href="https://blog.n8n.io/trace-n8n-workflow-and-node-executions-with-opentelemetry/" target="_blank">поддержка OpenTelemetry</a>, <a href="https://blog.n8n.io/llm-routing/" target="_blank">гайды по LLM-роутингу</a></p>
+
+<h2>4. Угрозы для SL2 AI Platform</h2>
+
+<table><thead><tr><th>Угроза</th><th>Платформа</th><th>Критерий SL2 AI Platform</th><th>Приоритет</th></tr></thead><tbody><tr><td>Стандартизация через MCP может сделать наш API вторичным</td><td>AWS Bedrock</td><td>Unified API + контракт</td><td>Высокий</td></tr><tr><td>Внедрение Security Middleware (Memory Guard) в open-source</td><td>AutoGen</td><td>Secrets/tenant</td><td>Средний</td></tr><tr><td>Native OpenTelemetry observability для no-code</td><td>n8n</td><td>Prod-ops</td><td>Средний</td></tr></tbody></table>
+<h2>5. Выводы для команды</h2>
+
+<ol><li><strong>MCP как стандарт:</strong> AWS делает ставку на MCP (Model Context Protocol). SL2 AI Platform должна обеспечить нативную поддержку или полную совместимость с этим протоколом, чтобы избежать изоляции экосистемы.</li><li><strong>Governance и безопасность:</strong> Конкуренты (AutoGen, n8n) активно закрывают брешь в Enterprise-governance (аудит, трейсинг, защита памяти). Нам необходимо убедиться, что SL2 AI Platform имеет превосходство в нативной изоляции данных tenants.</li><li><strong>Наблюдаемость:</strong> n8n показывает, что клиенты требуют интеграции с существующими стеками (OpenTelemetry). Рассмотреть возможность стандартизации телеметрии в SL2 AI Platform для соответствия корпоративным стандартам логирования.</li><li><strong>Конкуренция в Enterprise:</strong> Salesforce (AgentForce) и Google (Vertex) уходят в вертикальные решения (CRM, Data Analytics). SL2 AI Platform выигрывает за счет self-hosted гибкости, поэтому фокус на "Local-first / Self-hosted" должен стать ключевым маркетинговым преимуществом в ответах на Enterprise-запросы.</li></ol>
+<hr>
+<em>Сгенерировано: 15.06.2026, 06:00:14 МСК | Источники: RSS + GitHub Releases + Gemini 3.1 Flash</em>
+<hr>
+</div>
+</body>
+</html>
