@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI Platform Monitor v3.2</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+         background: #0f1117; color: #e2e8f0; padding: 32px 16px; line-height: 1.6; }
+  .container { max-width: 1100px; margin: 0 auto; }
+  h1 { font-size: 1.8rem; color: #7dd3fc; border-bottom: 2px solid #1e3a5f;
+       padding-bottom: 12px; margin: 0 0 24px; }
+  h2 { font-size: 1.2rem; color: #94a3b8; text-transform: uppercase; letter-spacing: .05em;
+       margin: 32px 0 12px; border-left: 3px solid #3b82f6; padding-left: 10px; }
+  h3 { font-size: 1rem; color: #7dd3fc; margin: 20px 0 8px; }
+  p { margin-bottom: 10px; color: #cbd5e1; }
+  a { color: #60a5fa; text-decoration: none; }
+  a:hover { text-decoration: underline; }
+  strong { color: #f1f5f9; }
+  hr { border: none; border-top: 1px solid #1e293b; margin: 24px 0; }
+  em { color: #94a3b8; font-style: normal; font-size: .85rem; }
+  table { width: 100%; border-collapse: collapse; margin: 12px 0 20px; font-size: .875rem; }
+  th { background: #1e293b; color: #94a3b8; text-align: left;
+       padding: 10px 12px; border-bottom: 2px solid #334155; font-weight: 600; }
+  td { padding: 9px 12px; border-bottom: 1px solid #1e293b; vertical-align: top; }
+  tr:hover td { background: #111827; }
+  ul, ol { padding-left: 24px; margin-bottom: 12px; }
+  li { color: #cbd5e1; margin-bottom: 6px; }
+  .green  { color: #4ade80; }
+  .yellow { color: #fbbf24; }
+  .red    { color: #f87171; }
+  .up     { color: #4ade80; font-weight: bold; }
+  .down   { color: #f87171; font-weight: bold; }
+  .warn   { color: #fbbf24; font-weight: bold; }
+  .score-crit { color: #f87171; font-weight: bold; font-size: 1.05rem; }
+  .score-warn { color: #fbbf24; font-weight: bold; }
+  .score-ok   { color: #4ade80; }
+</style>
+</head>
+<body>
+<div class="container">
+<div id='archive-link' style='display:flex;justify-content:flex-end;margin-bottom:8px'><a href='/AI-Platform-Monitor/archive.html?d=2026-07-06' target='_top' style='font-size:.9rem;color:#60a5fa;text-decoration:none'>📑 Архив отчётов →</a></div>
+<script>if(window.self!==window.top){var a=document.getElementById('archive-link');if(a)a.style.display='none';}</script>
+<h1>AI Platform Monitor v3.2 — неделя 29.06–06.07.2026</h1>
+
+<h2>1. Сводка</h2>
+
+<table><thead><tr><th>Платформа</th><th>Активность</th><th>Главный сигнал</th></tr></thead><tbody><tr><td>Vertex AI</td><td><span class="green">🟢</span></td><td>Google ADK для масштабируемых multi-agent систем и A2A-шлюз для Claude</td></tr><tr><td>AWS Bedrock</td><td><span class="green">🟢</span></td><td>GA AgentCore Runtime с изоляцией microVM и serverless A2A-шлюз</td></tr><tr><td>Azure Foundry</td><td><span class="red">🔴</span></td><td>Нет обновлений</td></tr><tr><td>AutoGen</td><td><span class="green">🟢</span></td><td>Open-source инструменты для security-тестирования и trust-инфраструктура</td></tr><tr><td>AgentForce</td><td><span class="green">🟢</span></td><td>MCP-серверы с расширенными security-практиками и LWC State Managers</td></tr><tr><td>LangGraph</td><td><span class="green">🟢</span></td><td>Релизы патчей без значимых архитектурных изменений</td></tr><tr><td>n8n</td><td><span class="green">🟢</span></td><td>Архитектурные гайды по error handling и MCP-безопасности</td></tr><tr><td>NetBox</td><td><span class="green">🟢</span></td><td>HIPAA-валидация для сетевой инфраструктуры</td></tr><tr><td>GLPI</td><td><span class="red">🔴</span></td><td>Нет обновлений</td></tr><tr><td>iTop</td><td><span class="red">🔴</span></td><td>Нет обновлений</td></tr><tr><td>Ralph</td><td><span class="red">🔴</span></td><td>Нет обновлений</td></tr><tr><td>Snipe-IT</td><td><span class="yellow">🟡</span></td><td>Обсуждение API-аутентификации для автоматизации</td></tr><tr><td>OCS Inventory</td><td><span class="red">🔴</span></td><td>Нет обновлений</td></tr></tbody></table>
+<p style="font-size:.8rem;color:#64748b;margin:-8px 0 16px">🟢 активная неделя (3+ обновлений) &nbsp;·&nbsp; 🟡 умеренная (1-2) &nbsp;·&nbsp; 🔴 тишина</p>
+<h2>2. Изменения по критериям топологии</h2>
+
+<table><thead><tr><th>Критерий</th><th>Vertex AI</th><th>AWS Bedrock</th><th>Azure Foundry</th><th>AutoGen</th><th>AgentForce</th><th>LangGraph</th><th>n8n</th></tr></thead><tbody><tr><td>Multi-tenancy</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td></tr><tr><td>Self-host</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td></tr><tr><td>Code+No-code</td><td>-</td><td>-</td><td>-</td><td>-</td><td><span class="up">↑</span> (LWC State)</td><td>-</td><td>-</td></tr><tr><td>Git-native dev</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td></tr><tr><td>Indep. deploy</td><td>-</td><td><span class="up">↑</span> (microVM)</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td></tr><tr><td>Indep. scale</td><td>-</td><td><span class="up">↑</span> (microVM)</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td></tr><tr><td>Unified API + контракт</td><td><span class="up">↑</span> (A2A-шлюз)</td><td><span class="up">↑</span> (A2A-шлюз)</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td></tr><tr><td>LLM routing</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td></tr><tr><td>Secrets/tenant</td><td>-</td><td><span class="up">↑</span> (microVM)</td><td>-</td><td><span class="up">↑</span> (proveyouragent)</td><td>-</td><td>-</td><td>-</td></tr><tr><td>Prod-ops</td><td><span class="up">↑</span> (ADK)</td><td><span class="up">↑</span> (AgentCore)</td><td>-</td><td><span class="up">↑</span> (security tests)</td><td><span class="up">↑</span> (MCP security)</td><td>-</td><td><span class="up">↑</span> (observability)</td></tr></tbody></table>
+<p style="font-size:.8rem;color:#64748b;margin:-8px 0 16px"><span style="color:#4ade80;font-weight:bold">↑</span> улучшила позицию &nbsp;·&nbsp; <span style="color:#f87171;font-weight:bold">↓</span> ухудшила &nbsp;·&nbsp; <span style="color:#fbbf24;font-weight:bold">⚠</span> анонс / в разработке &nbsp;·&nbsp; <strong>-</strong> без изменений</p>
+<h2>3. Детали по платформам</h2>
+
+<strong>Vertex AI</strong>: Google выпустил Agent Development Kit (ADK) для создания масштабируемых multi-agent систем с поддержкой полиморфных агентов (DP). Это усиливает критерий Prod-ops за счёт улучшенной observability и управления динамическими бизнес-правилами (CP). Для SL2 AI Platform это давление на GAP G3 (нет inter-agent tracing) и G7 (зрелость community), так как Google предлагает enterprise-ready инструменты "из коробки". Однако ADK остаётся частью managed-сервиса, что сохраняет наше преимущество в self-host для регулируемых клиентов.
+<p>Сигналы: <a href="https://cloud.google.com/blog/topics/developers-practitioners/beyond-static-prompts-with-google-adk/" target="_blank">Beyond Static Prompts with ADK</a>, <a href="https://cloud.google.com/blog/topics/developers-practitioners/announcing-claude-apps-gateway-for-google-cloud/" target="_blank">Claude apps gateway</a></p>
+
+<strong>AWS Bedrock</strong>: AWS объявил о GA AgentCore Runtime с изоляцией каждого агента в отдельной microVM и представил serverless A2A-шлюз для маршрутизации между агентами (DP). Это закрывает критерии Indep. deploy/scale и Secrets/tenant, ранее бывшие слабыми местами Bedrock (CP). Для SL2 AI Platform это прямая угроза по GAP G3 (observability) и G4 (cost tracking), так как AWS теперь предлагает managed-решение с enterprise-grade изоляцией и прозрачностью. Однако Bedrock остаётся SaaS-платформой, что сохраняет наше преимущество в self-host.
+<p>Сигналы: <a href="https://aws.amazon.com/blogs/machine-learning/run-nvidia-nemotron-and-openai-gpt-oss-models-on-amazon-bedrock-in-aws-govcloud-us/" target="_blank">AgentCore Runtime GA</a>, <a href="https://aws.amazon.com/blogs/machine-learning/building-a-serverless-a2a-gateway-for-agent-discovery-routing-and-access-control/" target="_blank">Serverless A2A gateway</a></p>
+
+<strong>AutoGen</strong>: Сообщество AutoGen активно развивает open-source инструменты для security-тестирования агентов (AG-001–AG-010) и представило AgentGraph — инфраструктуру для trust-верификации агентов (DP). Это усиливает критерий Secrets/tenant за счёт поддержки Ed25519-аутентификации и проверки подлинности агентов (CP). Для SL2 AI Platform это давление на GAP G6 (LLM gateway) и G9 (secrets management), так как AutoGen предлагает готовые решения для security-сценариев, которые у нас требуют кастомной интеграции. Однако AutoGen остаётся фреймворком, а не платформой, что сохраняет наше преимущество в enterprise-ready инфраструктуре.
+<p>Сигналы: <a href="https://github.com/microsoft/autogen/discussions/7432" target="_blank">Security testing framework</a>, <a href="https://github.com/microsoft/autogen/discussions/7476" target="_blank">AgentGraph trust verification</a></p>
+
+<strong>AgentForce</strong>: Salesforce выпустил гайд по безопасности MCP-серверов, включая аутентификацию, авторизацию и логирование, а также представил LWC State Managers для реактивного управления состоянием (DP). Это усиливает критерий Code+No-code за счёт расширения возможностей low-code разработки (CP). Для SL2 AI Platform это давление на GAP G1 (visual builder), так как Salesforce предлагает более зрелые инструменты для не-разработчиков. Однако AgentForce остаётся частью экосистемы Salesforce, что ограничивает его применение вне CRM-контура.
+<p>Сигналы: <a href="https://developer.salesforce.com/blogs/2026/06/how-to-secure-salesforce-hosted-mcp-servers" target="_blank">MCP Server Security Guide</a>, <a href="https://developer.salesforce.com/blogs/2026/07/lwc-state-managers-share-reactive-state-across-components" target="_blank">LWC State Managers</a></p>
+
+<strong>n8n</strong>: Команда n8n опубликовала архитектурные гайды по error handling для LLM tool calling и безопасности MCP-серверов (DP). Это усиливает критерий Prod-ops за счёт улучшенной observability и стратегий восстановления (CP). Для SL2 AI Platform это давление на GAP G3 (inter-agent tracing) и G5 (self-hosted observability), так как n8n предлагает практические рекомендации по enterprise-grade эксплуатации. Однако n8n остаётся визуальным конструктором, что ограничивает его гибкость для разработчиков.
+<p>Сигналы: <a href="https://blog.n8n.io/llm-tool-calling-error-handling/" target="_blank">Error Handling Guide</a>, <a href="https://blog.n8n.io/mcp-server-security/" target="_blank">MCP Security Guide</a></p>
+
+<strong>NetBox</strong>: NetBox Labs выпустила HIPAA-валидационный пак для проверки сетевой инфраструктуры на соответствие требованиям безопасности (DP). Это усиливает критерий Prod-ops за счёт интеграции compliance-проверок в CI/CD (CP). Для SL2 AI Platform это косвенное давление на GAP G5 (data residency), так как NetBox предлагает инструменты для offline-валидации, что актуально для регулируемых клиентов. Однако NetBox фокусируется на сетевой инфраструктуре, а не на AI-агентах.
+<p>Сигналы: <a href="https://netboxlabs.com/blog/netbox-validation-hipaa-security-rule-compliance-pack/" target="_blank">HIPAA Compliance Pack</a></p>
+
+<strong>Snipe-IT</strong>: В обсуждениях появился запрос на API-аутентификацию для автоматизации работы с asset labels (DP). Это потенциально усиливает критерий Secrets/tenant, если будет реализовано (CP). Для SL2 AI Platform это сигнал о растущем спросе на автоматизацию security-операций, что может повлиять на GAP G9 (secrets management). Однако Snipe-IT — это asset management, а не AI-платформа, поэтому давление косвенное.
+<p>Сигналы: <a href="https://github.com/grokability/snipe-it/discussions/19263" target="_blank">API Auth Discussion</a></p>
+
+<h2>4. Реестр сигналов</h2>
+
+<table><thead><tr><th>ID</th><th>Платформа</th><th>Дата</th><th>Тип</th><th>Сигнал</th><th>Зрелость</th><th>Уверенность</th></tr></thead><tbody><tr><td>VTX-001</td><td>Vertex AI</td><td>01.07.2026</td><td>blog</td><td>Google ADK для масштабируемых multi-agent систем</td><td>GA</td><td>высокая</td></tr><tr><td>VTX-002</td><td>Vertex AI</td><td>01.07.2026</td><td>blog</td><td>Claude apps gateway для интеграции с Vertex AI</td><td>GA</td><td>высокая</td></tr><tr><td>BDR-001</td><td>AWS Bedrock</td><td>01.07.2026</td><td>blog</td><td>GA AgentCore Runtime с изоляцией microVM</td><td>GA</td><td>высокая</td></tr><tr><td>BDR-002</td><td>AWS Bedrock</td><td>01.07.2026</td><td>blog</td><td>Serverless A2A-шлюз для маршрутизации агентов</td><td>GA</td><td>высокая</td></tr><tr><td>AUT-001</td><td>AutoGen</td><td>01.07.2026</td><td>github</td><td>Security testing framework для агентов</td><td>beta</td><td>средняя</td></tr><tr><td>AUT-002</td><td>AutoGen</td><td>30.06.2026</td><td>github</td><td>AgentGraph — trust-инфраструктура для агентов</td><td>preview</td><td>средняя</td></tr><tr><td>AGF-001</td><td>AgentForce</td><td>30.06.2026</td><td>blog</td><td>Гайд по безопасности MCP-серверов</td><td>GA</td><td>высокая</td></tr><tr><td>AGF-002</td><td>AgentForce</td><td>01.07.2026</td><td>blog</td><td>LWC State Managers для реактивного управления состоянием</td><td>GA</td><td>высокая</td></tr><tr><td>N8N-001</td><td>n8n</td><td>01.07.2026</td><td>blog</td><td>Архитектурный гайд по error handling для LLM tool calling</td><td>GA</td><td>высокая</td></tr><tr><td>N8N-002</td><td>n8n</td><td>01.07.2026</td><td>blog</td><td>Гайд по безопасности MCP-серверов</td><td>GA</td><td>высокая</td></tr><tr><td>NET-001</td><td>NetBox</td><td>01.07.2026</td><td>blog</td><td>HIPAA-валидационный пак для сетевой инфраструктуры</td><td>GA</td><td>высокая</td></tr><tr><td>SNI-001</td><td>Snipe-IT</td><td>05.07.2026</td><td>github</td><td>Обсуждение API-аутентификации для автоматизации</td><td>idea</td><td>низкая</td></tr></tbody></table>
+<h2>5. Конкурентные векторы</h2>
+
+<table><thead><tr><th>Платформа</th><th>Тип давления</th><th>Критерий SL2 AI Platform</th><th>GAP</th><th>Срок воздействия</th></tr></thead><tbody><tr><td>AWS Bedrock</td><td>прямой конкурент</td><td>Indep. deploy/scale, Secrets</td><td>G3, G4</td><td>сейчас</td></tr><tr><td>Vertex AI</td><td>экосистемное давление</td><td>Unified API + контракт</td><td>G2</td><td>6м</td></tr><tr><td>AutoGen</td><td>стандартизация</td><td>Secrets/tenant</td><td>G6, G9</td><td>12м+</td></tr><tr><td>AgentForce</td><td>экосистемное давление</td><td>Code+No-code</td><td>G1</td><td>3м</td></tr><tr><td>n8n</td><td>прямой конкурент</td><td>Prod-ops</td><td>G3, G5</td><td>сейчас</td></tr></tbody></table>
+<h2>6. Скоринг угроз</h2>
+
+<table><thead><tr><th>ID</th><th>Критерий</th><th>Платформа</th><th>I (1-3)</th><th>P (1-3)</th><th>U (1-3)</th><th>Score</th><th>GAP SL2 AI Platform</th></tr></thead><tbody><tr><td>THR-001</td><td>Indep. deploy/scale</td><td>AWS Bedrock</td><td><span class="score-ok">3</span></td><td><span class="score-ok">3</span></td><td><span class="score-ok">2</span></td><td><span class="score-crit">18</span></td><td>G3, G4</td></tr><tr><td>THR-002</td><td>Unified API + контракт</td><td>Vertex AI</td><td><span class="score-ok">2</span></td><td><span class="score-ok">3</span></td><td><span class="score-ok">1</span></td><td><span class="score-ok">6</span></td><td>G2</td></tr><tr><td>THR-003</td><td>Secrets/tenant</td><td>AutoGen</td><td><span class="score-ok">2</span></td><td><span class="score-ok">2</span></td><td><span class="score-ok">1</span></td><td><span class="score-ok">4</span></td><td>G6, G9</td></tr><tr><td>THR-004</td><td>Prod-ops</td><td>n8n</td><td><span class="score-ok">2</span></td><td><span class="score-ok">3</span></td><td><span class="score-ok">2</span></td><td><span class="score-warn">12</span></td><td>G3, G5</td></tr></tbody></table>
+<p style="font-size:.8rem;color:#64748b;margin:-8px 0 16px"><span style="color:#f87171;font-weight:bold">🔴 Score &ge; 18</span> — критично &nbsp;·&nbsp; <span style="color:#fbbf24;font-weight:bold">🟡 9–17</span> — следим &nbsp;·&nbsp; <span style="color:#4ade80">🟢 &lt; 9</span> — норма &nbsp;·&nbsp; Score&nbsp;=&nbsp;I&nbsp;&times;&nbsp;P&nbsp;&times;&nbsp;U</p>
+<h2>7. Рекомендации команде</h2>
+
+<table><thead><tr><th>Рекомендация</th><th>Владелец</th><th>Дедлайн</th><th>KPI</th></tr></thead><tbody><tr><td>Внедрить OpenTelemetry для inter-agent tracing (паритет с AWS Bedrock)</td><td>Platform team</td><td>15.08.2026</td><td>100% агентов имеют сквозные trace-id в логах</td></tr><tr><td>Проработать roadmap по A2A-адаптеру для совместимости с Agent Protocol</td><td>Product team</td><td>01.09.2026</td><td>Документ с оценкой усилий и приоритетами</td></tr><tr><td>Провести аудит security-практик для паритета с AutoGen</td><td>Security team</td><td>01.08.2026</td><td>Отчёт с gap-анализом и рекомендациями по инструментам</td></tr></tbody></table>
+<h2>8. Self-check</h2>
+
+<ul><li><strong>Непроверенные источники этой недели</strong>:</li><li>Azure Foundry, GLPI, iTop, Ralph, OCS Inventory — отсутствие обновлений не позволяет подтвердить текущий статус.</li><li>Snipe-IT — обсуждение на GitHub носит характер запроса фичи, не подтверждена реализация.</li></ul>
+<ul><li><strong>Слабые допущения</strong>:</li><li>Предположение о том, что AgentGraph от AutoGen станет стандартом для trust-верификации агентов — проект находится на стадии preview.</li><li>Оценка влияния HIPAA-пака NetBox на GAP G5 SL2 AI Platform — косвенная связь с data residency.</li></ul>
+<ul><li><strong>Что отслеживать на следующей неделе</strong>:</li><li>Появление GA-версии AgentCore в AWS GovCloud (сигнал о расширении регулируемых рынков).</li><li>Реакция сообщества на AgentGraph от AutoGen (t: adoption rate).</li><li>Обновления по A2A-стандарту от Linux Foundation (t: draft specification).</li></ul>
+<hr>
+<em>Сгенерировано: 06.07.2026, 06:01:31 МСК | Источники: RSS + GitHub Releases + Mistral Large | AI Platform Monitor v3.2</em>
+<hr>
+</div>
+</body>
+</html>
